@@ -1,15 +1,13 @@
 package model;
 
-import java.util.Date;
-
 public class GitCommit {
 
 	private String hash;
 	private String author;
 	private String message;
-	private Date time;
+	private String time;
 	
-	public GitCommit(String hash, String author, String message, Date time) {
+	public GitCommit(String hash, String author, String message, String time) {
 		super();
 		this.hash = hash;
 		this.author = author;
@@ -35,11 +33,19 @@ public class GitCommit {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public Date getTime() {
+	public String getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
+
+	@Override
+	public String toString(){
+		return "Commit: " + this.hash + "\n" + "Author: " + this.author + "\n" + "Date: " + this.time + "\n\t" + this.message + "\n" ;
+		
+	}
+	
+	
 
 }
