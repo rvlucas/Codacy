@@ -8,8 +8,6 @@ public interface GitCli {
 
 	void gitClone();
 	
-	//void gitFetch();
-	
 	List<GitCommit> gitLog();
 
 }
