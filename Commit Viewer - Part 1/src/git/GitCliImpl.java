@@ -37,6 +37,10 @@ public class GitCliImpl implements GitCli {
 		fileName = urlSplit[urlSplit.length - 1].replace(".git", "");
 	}
 
+	/**
+	 * Clones the git repository provided by an url
+	 * @throws GitCliException
+	 */
 	@Override
 	public void gitClone() throws GitCliException {
 		if (Files.notExists(Paths.get(DIR, fileName))) {
@@ -58,6 +62,11 @@ public class GitCliImpl implements GitCli {
 		}
 	}
 
+	/**
+	 * Gets a list of the commits made in the repository
+	 * @return list of the commits
+	 * @throws GitCliException
+	 */
 	@Override
 	public List<GitCommit> gitLog() throws GitCliException {
 		List<GitCommit> commits = new ArrayList<>();
@@ -92,7 +101,10 @@ public class GitCliImpl implements GitCli {
 
 		return commits;
 	}
-
+	/**
+	 * Fetch the git repository provided by an url
+	 * @throws GitCliException
+	 */
 	private void gitFetch() throws GitCliException {
 
 		LOGGER.info("Repository already exists locally. Fetching most recent changes from " + fileName);
@@ -109,6 +121,12 @@ public class GitCliImpl implements GitCli {
 
 	}
 
+	/**
+	 * Waits for the p process to end and checks if an error occur
+	 * @param p - the process in execution
+	 * @throws InterruptedException
+	 * @throws GitCliException
+	 */
 	private void errorChecking(Process p) throws InterruptedException, GitCliException {
 		int status = p.waitFor();
 		if (status != 0) {

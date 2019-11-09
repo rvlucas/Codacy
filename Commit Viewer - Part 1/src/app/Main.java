@@ -52,6 +52,9 @@ public class Main {
 		}
 	}
 
+	/**
+	 * Setup the logger used to make the logs
+	 */
 	private static void setupLog() {
 		FileHandler fh;
 		Logger globalLogger = Logger.getLogger("");
