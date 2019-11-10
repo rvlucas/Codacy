@@ -2,3 +2,7 @@
 /.metadata
 Clones/*
 logs/*
+*/.settings
+/targets/
+*/.classpath
+*/.project
