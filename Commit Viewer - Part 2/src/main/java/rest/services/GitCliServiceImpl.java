@@ -9,7 +9,7 @@ import git.GitCli;
 import git.GitCliImpl;
 import model.GitCommit;
 
-public class GitCliServiceImpl implements GitCliService {
+public class GitCliServiceImpl implements GitService {
 	private static final Logger LOGGER = Logger.getLogger(GitCliServiceImpl.class.getName());
 	
 	/**
@@ -35,28 +35,6 @@ public class GitCliServiceImpl implements GitCliService {
 		} catch (GitCliException e) {
 			LOGGER.severe("An error has occurred while executing: " + e.getMessage());
 			throw new GitCliException(e.getMessage());
-		}
-	}
-
-	/**
-	 * Checks if all parameters are within expected boundaries
-	 * @param url
-	 * @param page
-	 * @param perPage
-	 * @throws GitCliException
-	 */
-	private void checkParameters(String url, int page, int perPage) throws GitCliException {
-		if(url == null){
-			LOGGER.severe("Incorrect type of query parameter url");
-			throw new GitCliException("The url can not be empty. A GitHub URL with the format -- https://github.com/<author>/<repository>.git -- is expected as query parameter.");	
-		}
-		if(page < 1){
-			LOGGER.severe("Incorrect value of query parameter page");
-			throw new GitCliException("Page must be greater than 1");
-		}
-		if(perPage < 1){
-			LOGGER.severe("Incorrect value of query parameter perPage");
-			throw new GitCliException("Per page must be greater than 1");
 		}
 	}
 
