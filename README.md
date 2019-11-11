@@ -7,7 +7,7 @@ The second part, like the first one, also uses Git CLI to fetch the commits, but
 Finally, the third part uses the available GitHub API to fetch the list of commits, but if anything goes wrong, it reverts to the previous flow from part 2, using Git CLI.
 
 
-> **To note: :** This code was tested using only macOS. Other platforms might work, but it's not guaranteed.
+> **To note:** This code was tested using only macOS. Other platforms might work, but it's not guaranteed.
 
 
 ## Pre Requisits
